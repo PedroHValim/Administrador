@@ -5,13 +5,18 @@ import java.text.DecimalFormat;
 
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class AtualizarCotaçoes extends javax.swing.JFrame {
 
     
     Administrador pessoa;
    
+    /**
+     *
+     * @param pessoa
+     */
     public AtualizarCotaçoes(Administrador pessoa){
         initComponents();
     }

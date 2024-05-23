@@ -5,7 +5,8 @@ import Model.Administrador;
 
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class ConsultarSaldo extends javax.swing.JFrame {
 
@@ -16,6 +17,11 @@ public class ConsultarSaldo extends javax.swing.JFrame {
     Administrador pessoa;
     Controle controle;
     
+    /**
+     *
+     * @param pessoa
+     * @param controle
+     */
     public ConsultarSaldo(Administrador pessoa ,Controle controle) {
         initComponents();
         this.pessoa = pessoa;
@@ -113,7 +119,6 @@ public class ConsultarSaldo extends javax.swing.JFrame {
 
     private void BtConsultarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtConsultarSaldoActionPerformed
         this.TxtAreaSaldo.setText(controle.ConsultarSaldo(this.TxtCPFSaldo.getText()));
-        System.out.println(controle.ConsultarSaldo(this.TxtCPFSaldo.getText()));
     }//GEN-LAST:event_BtConsultarSaldoActionPerformed
 
     /**

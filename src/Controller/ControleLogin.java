@@ -13,16 +13,28 @@ import java.sql.SQLException;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author uniflduarte
+ * @author unifpvalim
+ */
 
 public class ControleLogin {
 
     private LoginADMS login;
         
+    /**
+     *
+     * @param login
+     */
     public ControleLogin(LoginADMS login){
         this.login = login;
     }
     
-     public void LoginADM(){
+    /**
+     *
+     */
+    public void LoginADM(){
         int linhas = 0;
         Conexao conexao = new Conexao();
         String cpf = login.getTxtCpf().getText();

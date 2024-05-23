@@ -6,7 +6,8 @@ import java.sql.SQLException;
 
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class CadastrarUsuario extends javax.swing.JFrame {
 
@@ -16,6 +17,11 @@ public class CadastrarUsuario extends javax.swing.JFrame {
     Administrador pessoa;
     Controle controle;
     
+    /**
+     *
+     * @param pessoa
+     * @param controle
+     */
     public CadastrarUsuario(Administrador pessoa,Controle controle) {
         initComponents();
         this.pessoa = pessoa;

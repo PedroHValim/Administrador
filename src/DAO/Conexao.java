@@ -10,6 +10,12 @@ import java.sql.DriverManager;
  * @author uniflduarte
  */
 public class Conexao {
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public Connection getConnection() throws SQLException{
     try{    
         Connection conexao = DriverManager.getConnection(

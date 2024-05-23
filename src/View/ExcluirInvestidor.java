@@ -9,13 +9,19 @@ import Model.Administrador;
 
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class ExcluirInvestidor extends javax.swing.JFrame {
 
         Administrador pessoa;
         Controle controle;
     
+    /**
+     *
+     * @param controle
+     * @param pessoa
+     */
     public ExcluirInvestidor(Controle controle , Administrador pessoa ) {
         initComponents();
         this.pessoa = pessoa;

@@ -9,13 +9,19 @@ import Model.Administrador;
 
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class ExcluirCripto extends javax.swing.JFrame {
 
         Administrador pessoa;
         Controle controle;
     
+    /**
+     *
+     * @param controle
+     * @param pessoa
+     */
     public ExcluirCripto(Controle controle , Administrador pessoa ) {
         initComponents();
         this.pessoa = pessoa;

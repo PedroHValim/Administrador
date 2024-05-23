@@ -7,9 +7,20 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author uniflduarte
+ * @author unifpvalim
+ */
+
 public class Menu extends javax.swing.JFrame {
 
    Administrador pessoa;
+
+    /**
+     *
+     * @param pessoa
+     */
     public Menu(Administrador pessoa) {
         initComponents();
         this.pessoa = pessoa;

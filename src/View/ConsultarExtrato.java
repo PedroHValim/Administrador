@@ -6,13 +6,19 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class ConsultarExtrato extends javax.swing.JFrame {
 
        Administrador pessoa;
        Controle controle;
     
+    /**
+     *
+     * @param controle
+     * @param pessoa
+     */
     public ConsultarExtrato(Controle controle , Administrador pessoa ) {
         initComponents();
         this.pessoa = pessoa;

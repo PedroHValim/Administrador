@@ -6,7 +6,8 @@ import java.sql.SQLException;
 
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class CadastrarUsuario2b extends javax.swing.JFrame {
 
@@ -16,6 +17,11 @@ public class CadastrarUsuario2b extends javax.swing.JFrame {
     Administrador pessoa;
     Controle controle;
     
+    /**
+     *
+     * @param pessoa
+     * @param controle
+     */
     public CadastrarUsuario2b(Administrador pessoa,Controle controle) {
         initComponents();
         this.pessoa = pessoa;
@@ -272,7 +278,7 @@ public class CadastrarUsuario2b extends javax.swing.JFrame {
         
         try {
             controle.InserirUsuario(nome, cpf, senha, reais, btc, ethe, rip,0,moeda2);
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_BtCadastrarActionPerformed

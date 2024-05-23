@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 
 /**
  *
+ * @author uniflduarte
  * @author unifpvalim
  */
 public class LoginADMS extends javax.swing.JFrame {
@@ -19,58 +20,114 @@ public class LoginADMS extends javax.swing.JFrame {
         controle = new ControleLogin(this);
     }
 
+    /**
+     *
+     * @return
+     */
     public ControleLogin getControle() {
         return controle;
     }
 
+    /**
+     *
+     * @param controle
+     */
     public void setControle(ControleLogin controle) {
         this.controle = controle;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtLogin() {
         return BtLogin;
     }
 
+    /**
+     *
+     * @param BtLogin
+     */
     public void setBtLogin(JButton BtLogin) {
         this.BtLogin = BtLogin;
     }
 
+    /**
+     *
+     * @return
+     */
     public JLabel getLblBemVindo() {
         return LblBemVindo;
     }
 
+    /**
+     *
+     * @param LblBemVindo
+     */
     public void setLblBemVindo(JLabel LblBemVindo) {
         this.LblBemVindo = LblBemVindo;
     }
 
+    /**
+     *
+     * @return
+     */
     public JLabel getLblCpf() {
         return LblCpf;
     }
 
+    /**
+     *
+     * @param LblCpf
+     */
     public void setLblCpf(JLabel LblCpf) {
         this.LblCpf = LblCpf;
     }
 
+    /**
+     *
+     * @return
+     */
     public JLabel getLblSenha() {
         return LblSenha;
     }
 
+    /**
+     *
+     * @param LblSenha
+     */
     public void setLblSenha(JLabel LblSenha) {
         this.LblSenha = LblSenha;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTxtCpf() {
         return TxtCpf;
     }
 
+    /**
+     *
+     * @param TxtCpf
+     */
     public void setTxtCpf(JTextField TxtCpf) {
         this.TxtCpf = TxtCpf;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTxtSenha() {
         return TxtSenha;
     }
 
+    /**
+     *
+     * @param TxtSenha
+     */
     public void setTxtSenha(JTextField TxtSenha) {
         this.TxtSenha = TxtSenha;
     }

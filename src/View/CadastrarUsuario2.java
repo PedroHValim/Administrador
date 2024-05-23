@@ -16,6 +16,11 @@ public class CadastrarUsuario2 extends javax.swing.JFrame {
     Administrador pessoa;
     Controle controle;
     
+    /**
+     *
+     * @param pessoa
+     * @param controle
+     */
     public CadastrarUsuario2(Administrador pessoa,Controle controle) {
         initComponents();
         this.pessoa = pessoa;

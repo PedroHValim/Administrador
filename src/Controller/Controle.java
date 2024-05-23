@@ -24,23 +24,36 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class Controle {
     
      Administrador pessoa;
     
+    /**
+     *
+     * @param pessoa
+     */
     public Controle(Administrador pessoa){
         this.pessoa = pessoa;
         
     }
     
+    /**
+     *
+     * @return
+     */
     public String data(){
         Date data = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy HH:mm");
         return  sdf.format(data);
     }
     
+    /**
+     *
+     * @throws SQLException
+     */
     public void Cotacoes() throws SQLException{              
         if(this.Contador() == 3){      
             DecimalFormat df = new DecimalFormat("0.000");
@@ -182,6 +195,11 @@ public class Controle {
         }
     }
     
+    /**
+     *
+     * @param id
+     * @param cot
+     */
     public void SalvarCot(String id,double cot){
         Conexao conexao = new Conexao();
         try{
@@ -194,6 +212,11 @@ public class Controle {
         }
     }
     
+    /**
+     *
+     * @param cpf
+     * @return
+     */
     public String ConsultarSaldo(String cpf){
          Conexao conexao = new Conexao();
          String resultado = "";
@@ -208,7 +231,13 @@ public class Controle {
         return resultado;
     }
     
-        public String ConsultarExtrato(String cpf) throws SQLException{  
+    /**
+     *
+     * @param cpf
+     * @return
+     * @throws SQLException
+     */
+    public String ConsultarExtrato(String cpf) throws SQLException{  
         ConsultarExtrato extrato = new ConsultarExtrato(this,pessoa);
         Conexao conexao = new Conexao();
         Connection conn = conexao.getConnection();
@@ -231,6 +260,19 @@ public class Controle {
         return Results;
     }
         
+    /**
+     *
+     * @param nome
+     * @param cpf
+     * @param senha
+     * @param reais
+     * @param bitcoin
+     * @param ethe
+     * @param ripple
+     * @param moeda1
+     * @param moeda2
+     * @throws SQLException
+     */
     public void InserirUsuario(String nome, String cpf, String senha,double reais, 
         double bitcoin, double ethe, double ripple,double moeda1,double moeda2) throws SQLException{
         CadastrarUsuario addusu = new CadastrarUsuario(pessoa,this);
@@ -247,13 +289,14 @@ public class Controle {
                     JOptionPane.showMessageDialog(cadastro, "CPF ou senha inválidos. O CPF deve ter 11 dígitos e a senha deve ter 6 dígitos.");
                     return;
                 }
-                dao.inserir(nome, cpf, senha, reais, bitcoin, ethe, ripple,0,0);
-                JOptionPane.showMessageDialog(addusu, "Usuario Cadastrado!");
+                    dao.inserir(nome, cpf, senha, reais, bitcoin, ethe, ripple,0,0);
+                    JOptionPane.showMessageDialog(addusu, "Usuario Cadastrado!");
             }catch(SQLException e){
                 System.out.println(e);
                 JOptionPane.showMessageDialog(addusu, "Erro de conexão!");
             }
-        }else if(dao.countRow() == 4 || dao.countRow() == 5){
+        }
+        if(dao.countRow() == 4 || dao.countRow() == 5){
                 if(dao.idMoeda().equals("M4")){
                     CadastrarUsuario2 cadastro = new CadastrarUsuario2(pessoa,this);
                     String cpfcomp = cpf;
@@ -262,15 +305,17 @@ public class Controle {
                     if (cpfcomp.length() != 11 || !Pattern.matches("\\d{6}", senhacomp)) {
                         JOptionPane.showMessageDialog(cadastro, "CPF ou senha inválidos. O CPF deve ter 11 dígitos e a senha deve ter 6 dígitos.");
                         return;
+                    }else{
+                        try{
+                            dao.inserir(nome, cpf, senha, reais, bitcoin, ethe, ripple,moeda1,moeda2);
+                            JOptionPane.showMessageDialog(addusu, "Usuario Cadastrado!");
+                        }catch(SQLException e){
+                            System.out.println(e);
+                            JOptionPane.showMessageDialog(addusu, "Erro de conexão!");
+                        }
                     }
-                    try{
-                    dao.inserir(nome, cpf, senha, reais, bitcoin, ethe, ripple,moeda1,moeda2);
-                    JOptionPane.showMessageDialog(addusu, "Usuario Cadastrado!");
-                    }catch(SQLException e){
-                        System.out.println(e);
-                        JOptionPane.showMessageDialog(addusu, "Erro de conexão!");
-                    }
-                }else if(dao.idMoeda().equals("M5")){
+                    
+                }if(dao.idMoeda().equals("M5")){
                     CadastrarUsuario2b cadastro = new CadastrarUsuario2b(pessoa,this);
                     String cpfcomp = cpf;
                     String senhacomp = senha;
@@ -285,11 +330,15 @@ public class Controle {
                     }catch(SQLException e){
                         System.out.println(e);
                         JOptionPane.showMessageDialog(addusu, "Erro de conexão!");
-            }
+                    }
                 }               
         }
     }
     
+    /**
+     *
+     * @param Cpf
+     */
     public void ExluirUsuario(String Cpf){
         ExcluirInvestidor excluirusu = new ExcluirInvestidor(this,pessoa);
         Conexao conexao = new Conexao();
@@ -304,6 +353,14 @@ public class Controle {
         }
     }
     
+    /**
+     *
+     * @param id
+     * @param nome
+     * @param cotacao
+     * @param taxacompra
+     * @param taxavenda
+     */
     public void InserirCripto(String id,String nome, double cotacao, double taxacompra, double taxavenda){
         CadastrarNovaCripto nova = new CadastrarNovaCripto(this);
         Conexao conexao = new Conexao();
@@ -318,6 +375,10 @@ public class Controle {
         }
     }
     
+    /**
+     *
+     * @param id
+     */
     public void ExcluirCripto(String id){
         CadastrarNovaCripto nova = new CadastrarNovaCripto(this);
         Conexao conexao = new Conexao();
@@ -332,6 +393,11 @@ public class Controle {
         }
     }
     
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public int Contador() throws SQLException{
         int linhas = 0;
         try{
@@ -345,6 +411,11 @@ public class Controle {
         return linhas;
     }
     
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public String idMoeda() throws SQLException{
         String resultado = "";
         try{
@@ -358,6 +429,12 @@ public class Controle {
         return resultado;
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     public String NomeCripto(String id) throws SQLException{
         String resultado = "";
         try{
@@ -371,6 +448,10 @@ public class Controle {
         return resultado;
     }
     
+    /**
+     *
+     * @throws SQLException
+     */
     public void MenuCadastrarUsu() throws SQLException{
             Conexao conexao = new Conexao();
             Connection conn = conexao.getConnection();

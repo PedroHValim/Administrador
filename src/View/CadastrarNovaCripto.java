@@ -4,12 +4,17 @@ import Controller.Controle;
 
 /**
  *
- * @author thelm
+ * @author uniflduarte
+ * @author unifpvalim
  */
 public class CadastrarNovaCripto extends javax.swing.JFrame {
 
         Controle controle;
     
+    /**
+     *
+     * @param controle
+     */
     public CadastrarNovaCripto(Controle controle) {
         initComponents();
         this.controle = controle;
